@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 const OPENCLAW_GATEWAY = 'http://localhost:18789';
-const OPENCLAW_TOKEN = '4fcab2e477fef7d6b80d61b9be52f8c1734cc5b581e33d82';
+const OPENCLAW_TOKEN = process.env.OPENCLAW_API_KEY || 'your_openclaw_api_key_here';
 
 async function getFallbackNews() {
   const templates = [

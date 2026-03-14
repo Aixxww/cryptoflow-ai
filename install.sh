@@ -224,7 +224,7 @@ configure_project() {
     fi
 
     # 获取 OpenClaw auth token / Get OpenClaw auth token
-    GATEWAY_TOKEN=$(jq -r '.gateway.token // empty' "$OPENCLAW_CONFIG" 2>/dev/null || echo "4fcab2e477fef7d6b80d61b9be52f8c1734cc5b581e33d82")
+    GATEWAY_TOKEN=$(jq -r '.gateway.token // empty' "$OPENCLAW_CONFIG" 2>/dev/null || echo "your_openclaw_token_here")
 
     # 更新 API 路由的 OpenClaw 配置 / Update OpenClaw config in API routes
     find ./app/api -name "route.ts" -exec sed -i.bak \
