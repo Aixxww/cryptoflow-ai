@@ -1,26 +1,159 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== COOL BLUE THEME (冷蓝) ===== */
+[data-theme="cool-blue"] {
+  --primary: #00fff5;
+  --primary-light: rgba(0, 255, 245, 0.1);
+  --primary-glow: rgba(0, 255, 245, 0.5);
+
+  --accent-1: #0088ff;
+  --accent-2: #7c3aed;
+  --accent-3: #ec4899;
+
+  --gradient-primary: linear-gradient(135deg, #00fff5 0%, #0088ff 100%);
+  --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  --gradient-radial: radial-gradient(ellipse at top, rgba(0, 136, 255, 0.15) 0%, transparent 50%);
+
+  --glass-bg: rgba(24, 24, 27, 0.8);
+  --glass-border: rgba(63, 63, 70, 0.5);
+  --glass-elevated-bg: rgba(39, 39, 42, 0.9);
+
+  --color-green: #22c55e;
+  --color-rose: #f43f5e;
+  --color-yellow: #eab308;
+  --color-purple: #a855f7;
+
+  --shadow-glow: 0 0 30px rgba(0, 255, 245, 0.4);
+  --shadow-glow-accent: 0 0 30px rgba(124, 58, 237, 0.4);
+}
+
+/* ===== DOPAMINE THEME (多巴胺) ===== */
+[data-theme="dopamine"] {
+  --primary: #ff6b9d;
+  --primary-light: rgba(255, 107, 157, 0.1);
+  --primary-glow: rgba(255, 107, 157, 0.5);
+
+  --accent-1: #ffd93d;
+  --accent-2: #6bcb77;
+  --accent-3: #98dafe;
+
+  --gradient-primary: linear-gradient(135deg, #ff6b9d 0%, #ffd93d 100%);
+  --gradient-accent: linear-gradient(135deg, #6bcb77 0%, #98dafe 100%);
+  --gradient-radial: radial-gradient(ellipse at top, rgba(255, 107, 157, 0.15) 0%, transparent 50%);
+
+  --glass-bg: rgba(30, 30, 35, 0.85);
+  --glass-border: rgba(255, 107, 157, 0.3);
+  --glass-elevated-bg: rgba(45, 45, 55, 0.9);
+
+  --color-green: #6bcb77;
+  --color-rose: #ff6b6b;
+  --color-yellow: #ffd93d;
+  --color-purple: #c9b1ff;
+
+  --shadow-glow: 0 0 30px rgba(255, 107, 157, 0.4);
+  --shadow-glow-accent: 0 0 30px rgba(255, 217, 61, 0.4);
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  border-color: #27272a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0a0a0a;
+  color: #fafafa;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global Components */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-elevated {
+  background: var(--glass-elevated-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.bg-gradient-radial {
+  background: var(--gradient-radial);
+}
+
+.neon-cyan {
+  color: var(--primary);
+  text-shadow: 0 0 10px var(--primary-glow), 0 0 20px var(--primary-glow);
+}
+
+.neon-pink {
+  color: var(--accent-3);
+  text-shadow: 0 0 10px var(--primary-glow), 0 0 20px var(--primary-glow);
+}
+
+.gradient-cyan {
+  background: var(--gradient-primary);
+}
+
+.gradient-purple {
+  background: var(--gradient-accent);
+}
+
+.hover\:shadow-glow:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+/* Grid Pattern */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Utility */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

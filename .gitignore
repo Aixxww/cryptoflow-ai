@@ -32,9 +32,19 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
+
+# OpenClaw workspace
+.openclaw/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
 
 # typescript
 *.tsbuildinfo
